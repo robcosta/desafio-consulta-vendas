@@ -31,8 +31,8 @@ public class SaleService {
 	}
 
 	public Page<SaleMinDTO> getReport(String minDate, String maxDate, String name, Pageable pageable) {
-		Page<Sale> result = repository.getReport(verifyMinDate(minDate), verifyMaxDate(maxDate), name, pageable);
-		return result.map(x -> new SaleMinDTO(x));
+		Page<SaleMinDTO> result = repository.getReport(verifyMinDate(minDate), verifyMaxDate(maxDate), name, pageable);
+		return result;
 	}
 	
 	public Page<SallerSumDTO> getSummary(String minDate, String maxDate, Pageable pageable) {

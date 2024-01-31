@@ -11,18 +11,17 @@ public class SaleMinDTO {
 	private Double amount;
 	private String sellerName;
 	
-
-	public SaleMinDTO(Long id, Double amount, LocalDate date, SellerMinDTO seller) {
+	public SaleMinDTO(Long id, LocalDate date, Double amount, String seller) {
 		this.id = id;
-		this.amount = amount;
 		this.date = date;
-		this.sellerName = seller.getName();
+		this.amount = amount;
+		this.sellerName = seller;
 	}
 
 	public SaleMinDTO(Sale entity ) {
 		id = entity.getId();
-		amount = entity.getAmount();
 		date = entity.getDate();
+		amount = entity.getAmount();
 		sellerName = entity.getSeller().getName();
 	}
 
@@ -30,12 +29,12 @@ public class SaleMinDTO {
 		return id;
 	}
 
-	public Double getAmount() {
-		return amount;
-	}
-
 	public LocalDate getDate() {
 		return date;
+	}
+	
+	public Double getAmount() {
+		return amount;
 	}
 
 	public String getSellerName() {
